@@ -49,7 +49,7 @@
         <img src="image/LibraRead.png" class="logo"> <a href="index.php" class="home">Home</a> <a href="about.html">About</a>
     </nav>
     <div class="container">
-        <h1><?php echo $a['title'] ?></h1>
+        <h1>Title : <?php echo $a['title'] ?></h1>
         <p>Penulis: <?php echo $a['author'] ?></p>
         <p>Penerbit: <?php echo $a['publisher'] ?></p>
         <p>Tahun Terbit: <?php echo $a['pubyear'] ?></p>
