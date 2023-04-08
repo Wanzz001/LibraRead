@@ -14,14 +14,15 @@
             $filename = $_FILES['file']['name'];
             $filetmp = $_FILES['file']['tmp_name'];
             
-            $path = "file/".$filename;
+            $path = "../file/".$filename;
 
             $query = "insert into buku values ('','$title','$author','$publisher','$pubyear','$subject','$filename')";
+            move_uploaded_file($filetmp,$path);
             $run = mysqli_query($connect,$query);
 
             if ($run) {
-                move_uploaded_file($filetmp,$path);
-                echo "<script> alert('Upload success'); </script>";
+                header("Location: ../upload.php?alert=Upload Successfull");
+                exit();
             } else {
                 echo mysqli_error($connect);
             }

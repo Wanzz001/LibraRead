@@ -39,25 +39,35 @@
         }
         .thumbnail{
             background-color: rgb(177, 177, 177);
-            width: 300px;
-            height: 400px;
+            width: 200px;
+            height: 300px;
             float: left;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 40px 60px;
+            margin: 40px 40px;
         }
         .thumbnail img{
-            width: 200px;
+            width: 150px;
         }
         .container{
             margin: 50px 20px;
             float: left;
         }
         .container p{
-            font-size: 27px;
-            margin-bottom: 10px;
+            font-size: 24px;
+            margin-bottom: 4px;
             color: white;
+        }
+        .menu{
+            height: 70px;
+            margin: 20px;
+            float: left;
+        }
+        .menu::after{
+            content: '';
+            display: block;
+            clear: both;
         }
     </style>
 </head>
@@ -65,16 +75,17 @@
     <nav>
         <img src="image/LibraRead.png" class="logo"> <a href="index.php" class="home">Home</a> <a href="about.html">About</a>
     </nav>
+    <img src="image/menu.png" class="menu">
     <?php 
-        include("connect.php");
+        include("action/connect.php");
         $sql="select * from buku";
         $result = mysqli_query($connect,$sql);
-
         $row= mysqli_num_rows($result);
         if ($row > 0) {
+            $loop = 0;
             while ($a = mysqli_fetch_assoc($result)) {
     ?>
-    <a href="desc.php?id=<?php echo $a['id'] ?>" class="thumbnail"><img src="LibraRead.png"></a>
+    <a href="desc.php?id_buku=<?php echo $a['id_buku'] ?>" class="thumbnail"><img src="image/LibraRead.png"></a>
     <div class="container">
         <p>Title :</p>
         <p><?php echo $a['title'] ?></p>
@@ -85,7 +96,11 @@
         <p>Publication year :</p>
         <p><?php echo $a['pubyear'] ?></p>
     </div>
-    <?php 
+    <?php
+        $loop++;
+        if ($loop >= 3) {
+            break;
+        }
         }
     }
     ?>

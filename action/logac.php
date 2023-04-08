@@ -8,10 +8,10 @@
     $cek = mysqli_num_rows($sql);
 
     if ($cek > 0) {
-        echo "<script> alert ('Login Successfull');  window.location.href='upload.php';</script>";    
+        echo "<script> alert ('Login Successfull');  window.location.href='../index.php?username=$username';</script>";    
         
     } else{
-        header("Location: login.php?error=Username or password is incorrect");
+        header("Location: ../login.php?error=Username or password is incorrect");
         exit();
     }
 ?>

@@ -1,7 +1,7 @@
 <?php 
-    include("connect.php");
-    $id = $_GET['id'];
-    $sql="select * from buku where id=$id";
+    include("action/connect.php");
+    $id_buku = $_GET['id_buku'];
+    $sql="select * from buku where id_buku=$id_buku";
     $result = mysqli_query($connect,$sql);
 
     $row= mysqli_num_rows($result);
@@ -40,7 +40,95 @@
             background-image: url('image/bgwebjadi.png');
             background-size: cover;
             background-repeat: no-repeat;
-            overflow: hidden;
+            /* overflow: hidden; */
+        }
+        .back{
+            height: 70px;
+            margin: 20px;
+            float: left;
+        }
+        .back::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+        .col-1 {width: 8.33%;}
+        .col-2 {width: 16.66%;}
+        .col-3 {width: 25%;}
+        .col-4 {width: 33.33%;}
+        .col-5 {width: 41.66%;}
+        .col-6 {width: 50%;}
+        .col-7 {width: 58.33%;}
+        .col-8 {width: 66.66%;}
+        .col-9 {width: 75%;}
+        .col-10 {width: 83.33%;}
+        .col-11 {width: 91.66%;}
+        .col-12 {width: 100%;}
+        .thumbnail{
+            margin-top: 20vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #d9d9d9;
+            width: 300px;
+            height: 400px;
+            margin-left: 15vw;
+        }
+        .thumbnail img{
+            width: 200px;
+        }
+        .container{
+            margin-top: 18vh;
+            margin-left: 20px;
+        }
+        .container p{
+            font-size: 30px;
+            color: white;
+            margin-bottom: 5px;
+        }
+        .container .bold{
+            font-weight: bold;
+        }
+        .button{
+            display: flex;
+            align-items: center;
+            justify-content: start;
+        }
+        .read{
+            background-color: #ff3d00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://cdn-icons-png.flaticon.com/128/828/828370.png');
+            background-size: 40px;
+            background-repeat: no-repeat;
+            width: 250px;
+            height: 60px;
+            font-size: 40px;
+            background-position: 30px;
+            margin-left: 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .download{
+            background-color: #00C008;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://cdn-icons-png.flaticon.com/128/786/786223.png');
+            background-size: 40px;
+            background-repeat: no-repeat;
+            width: 250px;
+            height: 60px;
+            font-size: 40px;
+            background-position: 30px;
+            margin-left: 20px;
+            margin-top: 20px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -48,11 +136,56 @@
     <nav>
         <img src="image/LibraRead.png" class="logo"> <a href="index.php" class="home">Home</a> <a href="about.html">About</a>
     </nav>
-    <div class="container">
-        <h1>Title : <?php echo $a['title'] ?></h1>
-        <p>Penulis: <?php echo $a['author'] ?></p>
-        <p>Penerbit: <?php echo $a['publisher'] ?></p>
-        <p>Tahun Terbit: <?php echo $a['pubyear'] ?></p>
+    <a href="index.php"><img src="image/back.png" class="back"></a>
+    <div class="col-4 thumbnail">
+        <img src="image/LibraRead.png">
+    </div>
+    <div class="container col-5">
+        <p>Title :</p>
+        <p class="bold"><?php echo $a['title']?></p>
+        <p>Author :</p>
+        <p class="bold"><?php echo $a['author'] ?></p>
+        <p>Publisher :</p>
+        <p class="bold"><?php echo $a['publisher'] ?></p>
+        <p>Publication year :</p>
+        <p class="bold"><?php echo $a['pubyear'] ?></p>
+        <p>Subject :</p>
+        <p class="bold"><?php echo $a['subject'] ?></p>
+        <div class="button">
+            <form action="" method="post">
+                <button name="read" class="read">Read</button>
+                <?php 
+                    if (isset($_POST['read'])) {
+                        $file_path = 'file/'.$a['file'];
+
+                        header("Content-Type: application/pdf");
+                        header("Content-Disposition: inline; filename='" . basename($file_path) . "'");
+                        header("Content-Length: " . filesize($file_path));
+
+                        readfile($file_path);
+                        exit();
+                    }
+                ?>
+                <button name="download" class="download">Download</button>
+                <?php 
+                    $filename = basename($a['file']);
+                    $path = 'file/'.$filename;
+
+                    if(file_exists($path)){
+                        header('Content-Description: File Transfer');
+                        header('Content-Type: application/octet-stream');
+                        header('Content-Disposition: attachment; filename'.$filename);
+                        header('Expires: 0');
+                        header('Cache-Control: must-revalidate');
+                        header('Pragma: public');
+                        readfile($path);
+                        exit;
+                    }
+                    
+                ?>
+            </form>
+        </div>
+        
     </div>
 </body>
 </html>

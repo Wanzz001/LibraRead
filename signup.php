@@ -34,7 +34,7 @@
             float: left;
             height: 100vh;
             background-color: #D9d9d9;
-            padding-top: 27vh;
+            padding-top: 22vh;
         }
         .container h1{
             padding: 0 0 0 20px;
@@ -108,6 +108,13 @@
         .login img{
             height: 40px;
         }
+        .error{
+            background-color: #FF2C2C;
+            font-size: 30px;
+            margin: 0 30px 0 20px;
+            margin-left: 20px;
+            padding: 30px;
+        }
 
     </style>
 </head>
@@ -116,9 +123,12 @@
         <img src="image/LibraRead.png" class="logo">
     </div>
     <div class="container">
+        <?php if (isset($_GET['error'])) {?>
+            <p class="error"><?php echo $_GET['error']; ?></p>
+        <?php } ?>
         <a href="login.php" class="login"><img src="https://cdn-icons-png.flaticon.com/128/3114/3114883.png">Back</a>
         <h1>Sign Up</h1>
-            <form action="signac.php" method="post">
+            <form action="action/signac.php" method="post">
             <input type="text" id="input" class="un" name="username" placeholder="Username" required>
             <input type="email" id="input" class="em" name="email" placeholder="Email" required>
             <input type="password" id="input" class="pw" name="password" placeholder="Password" required>

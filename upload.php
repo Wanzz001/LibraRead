@@ -45,30 +45,8 @@
         .upload{
             float: left;
         }
-        .back::after{
-            content: "";
-            clear: both;
-            display: block;
-        }
         input[type="file"] {
             display: none;
-        }
-        .book::before{
-            content: 'Upload book/journal';
-            display: flex;
-            background: white;
-            background-image: url('https://cdn-icons-png.flaticon.com/128/1828/1828925.png');
-            height: 400px;
-            width: 400px;
-            background-repeat: no-repeat;
-            font-size: 40px;
-            background-position: 50%;
-            align-items: end;
-            justify-content: center;
-            float: right;
-            margin-top: 120px;
-            color: gray;
-            cursor: pointer;
         }
         .container{
             margin-top: 120px;
@@ -116,6 +94,7 @@
             background-position: 10px;
             margin-left: 20px;
             margin-top: 20px;
+            cursor: pointer;
         }
 
         .cancel{
@@ -140,6 +119,22 @@
             align-items: center;
             justify-content: start;
         }
+        #fileInputLabel {
+            display: flex;
+            background: white;
+            background-image: url('https://cdn-icons-png.flaticon.com/128/1828/1828925.png');
+            height: 400px;
+            width: 400px;
+            background-repeat: no-repeat;
+            font-size: 30px;
+            background-position: 50%;
+            align-items: end;
+            justify-content: center;
+            float: right;
+            margin-top: 120px;
+            color: gray;
+            cursor: pointer;
+            }
     </style>
 </head>
 <body>
@@ -147,15 +142,25 @@
         <img src="image/LibraRead.png" class="logo"> <a href="index.php">Home</a> <a href="about.html">About</a>
     </nav>
 
-    <a href="login.php"><img src="back.png" class="back"></a>
-    <form action="uploadac.php" method="post" enctype="multipart/form-data">
+    <a href="index.php"><img src="image/back.png" class="back"></a>
+    <form action="action/uploadac.php" method="post" enctype="multipart/form-data">
         <div class="col-4">
-        <label class="book">
-            <input type="file" name="file" class="book" accept="application/pdf">
-            <script>
-                
-            </script>
+        <input type="file" id="fileInput" accept="application/pdf" onchange="change()" name="file" required />
+        <label for="fileInput" id="fileInputLabel">
+            <span>Upload book/journal</span>
         </label>
+            <script>
+                function change() {
+                    var fileInput = document.getElementById('fileInput');
+                    var fileInputLabel = document.getElementById('fileInputLabel');
+                    var fileName = fileInput.files[0].name;
+                    fileInputLabel.innerHTML = '<span>' + fileName + '</span>';
+                    fileInputLabel.style.backgroundColor = '#fff';
+                    fileInputLabel.style.color = 'gray';
+                    fileInputLabel.style.backgroundImage = "url('image/LibraRead.png')";
+                    fileInputLabel.style.backgroundSize = '200px';
+                }
+            </script>
         </div>
         <div class="container col-5">
             <input type="text" id="input" name="title" placeholder="Title" required>
@@ -167,6 +172,9 @@
                 <input type="submit" value="Upload" class="upload" name="upload">
                 <a href="index.php" class="cancel">Cancel</a>
             </div>
+            <?php if (isset($_GET['error'])) {?>
+                <p class="alert"><?php echo $_GET['alert']; ?></p>
+            <?php } ?>
     </form>
     </div>
 </body>

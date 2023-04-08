@@ -10,7 +10,8 @@
 
         echo "<script> alert('Account has been created'); </script>";
     } else{
-        echo "<script> alert('Your password and confirm password is different'); </script>";
+        header("Location: ../signup.php?error=Password and confirm password are different");
+        exit();
     }
     
 ?>

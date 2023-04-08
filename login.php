@@ -35,6 +35,7 @@
             float: left;
             height: 100vh;
             background-color: #D9d9d9;
+            padding-top: 8%;
         }
         .container h1{
             padding: 30px 0 0 20px;
@@ -96,7 +97,7 @@
         .error{
             background-color: #FF2C2C;
             font-size: 30px;
-            margin: 25% 30px 0 20px;
+            margin: 9% 30px 0 20px;
             margin-left: 20px;
             padding: 30px;
         }
@@ -113,7 +114,7 @@
             <p class="error"><?php echo $_GET['error']; ?></p>
         <?php } ?>
         <h1>Login</h1>
-        <form action="logac.php" method="post">
+        <form action="action/logac.php" method="post">
             <input type="text" id="input" class="un" name="username" placeholder="Username" required>
             <input type="password" id="input" class="pw" name="password" placeholder="Password" required>
             <p class="fgpw">Forgot password?<a href="resetpw.php">Click Here!</a></p>
