@@ -94,10 +94,10 @@
             ?>
         </form>
     </nav>
-    <img src="image/menu.png" class="menu">
     <?php 
         include("action/connect.php");
-        $sql="select * from buku";
+        $search = $_GET['search'];
+        $sql="select * from buku where title like '%".$search."%' or author like '%".$search."%' or publisher like '%".$search."%'";
         $result = mysqli_query($connect,$sql);
         $row= mysqli_num_rows($result);
         if ($row > 0) {
@@ -117,10 +117,6 @@
         <p><?php echo $a['pubyear'] ?></p>
     </div>
     <?php
-        $loop++;
-        if ($loop >= 3) {
-            
-        }
         }
     }
     ?>

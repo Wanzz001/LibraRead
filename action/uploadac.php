@@ -21,8 +21,7 @@
             $run = mysqli_query($connect,$query);
 
             if ($run) {
-                header("Location: ../upload.php?alert=Upload Successfull");
-                exit();
+                echo "<script> alert ('Upload Successfull');</script>";   
             } else {
                 echo mysqli_error($connect);
             }

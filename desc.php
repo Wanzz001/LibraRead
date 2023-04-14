@@ -1,4 +1,5 @@
-<?php 
+<?php
+    ob_start();
     include("action/connect.php");
     $id_buku = $_GET['id_buku'];
     $sql="select * from buku where id_buku=$id_buku";
@@ -113,6 +114,7 @@
             margin-left: 20px;
             margin-top: 20px;
             cursor: pointer;
+            float: left;
         }
         .download{
             background-color: #00C008;
@@ -122,13 +124,14 @@
             background-image: url('https://cdn-icons-png.flaticon.com/128/786/786223.png');
             background-size: 40px;
             background-repeat: no-repeat;
-            width: 250px;
+            width: 340px;
             height: 60px;
             font-size: 40px;
             background-position: 30px;
             margin-left: 20px;
             margin-top: 20px;
             cursor: pointer;
+            float: left;
         }
     </style>
 </head>
@@ -156,32 +159,20 @@
                 <button name="read" class="read">Read</button>
                 <?php 
                     if (isset($_POST['read'])) {
+                        header("Content-Type: application/pdf");
+                        readfile('file/'.$a['file']);
+                    }
+                ?>
+                <button name="download" class="download">Download</button>
+                <?php 
+                    if (isset($_POST['download'])) {
                         $file_path = 'file/'.$a['file'];
 
                         header("Content-Type: application/pdf");
                         header("Content-Disposition: inline; filename='" . basename($file_path) . "'");
                         header("Content-Length: " . filesize($file_path));
-
                         readfile($file_path);
-                        exit();
                     }
-                ?>
-                <button name="download" class="download">Download</button>
-                <?php 
-                    $filename = basename($a['file']);
-                    $path = 'file/'.$filename;
-
-                    if(file_exists($path)){
-                        header('Content-Description: File Transfer');
-                        header('Content-Type: application/octet-stream');
-                        header('Content-Disposition: attachment; filename'.$filename);
-                        header('Expires: 0');
-                        header('Cache-Control: must-revalidate');
-                        header('Pragma: public');
-                        readfile($path);
-                        exit;
-                    }
-                    
                 ?>
             </form>
         </div>
@@ -191,4 +182,5 @@
 </html>
 <?php 
     }
+    ob_end_flush();
 ?>
