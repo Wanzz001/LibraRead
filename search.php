@@ -30,7 +30,6 @@
             background-image: url('image/bgwebjadi.png');
             background-size: cover;
             background-repeat: no-repeat;
-            overflow: hidden;
         }
         .home{
             background-color: gray;
@@ -79,6 +78,21 @@
             background-size: 34px;
             padding-left: 50px;
         }
+        .tag{
+            margin: 50px 0 20px 50px;
+            font-size: 40px;
+            color: white;
+        }
+        .sort{
+            background-color: transparent;
+            margin-right: 20px;
+            font-size: 25px;
+            color: white;
+            cursor: pointer;
+        }
+        .group{
+            margin-left: 50px;
+        }
     </style>
 </head>
 <body>
@@ -94,16 +108,42 @@
             ?>
         </form>
     </nav>
+    <p class="tag">Sort by: </p>
+    <form action="" method="post">
+        <div class="group">
+            <button name="all" class="sort">All</button>
+            <button name="title" class="sort">Title</button>
+            <button name="author" class="sort">Author</button>
+            <button name="publisher" class="sort">Publisher</button>
+        </div>
     <?php 
         include("action/connect.php");
         $search = $_GET['search'];
-        $sql="select * from buku where title like '%".$search."%' or author like '%".$search."%' or publisher like '%".$search."%'";
-        $result = mysqli_query($connect,$sql);
-        $row= mysqli_num_rows($result);
+        $row;
+        $result;
+        $sql;
+        if (isset($_POST['title'])) {
+            $sql="select * from buku where title like '%".$search."%'";
+            $result = mysqli_query($connect,$sql);
+            $row= mysqli_num_rows($result);
+        } elseif (isset($_POST['author'])) {
+            $sql="select * from buku where author like '%".$search."%'";
+            $result = mysqli_query($connect,$sql);
+            $row= mysqli_num_rows($result);
+        } elseif (isset($_POST['publisher'])) {
+            $sql="select * from buku where publisher like '%".$search."%'";
+            $result = mysqli_query($connect,$sql);
+            $row= mysqli_num_rows($result);
+        } else{
+            $sql="select * from buku where title like '%".$search."%' or author like '%".$search."%' or publisher like '%".$search."%'";
+            $result = mysqli_query($connect,$sql);
+            $row= mysqli_num_rows($result);
+        }
         if ($row > 0) {
             $loop = 0;
             while ($a = mysqli_fetch_assoc($result)) {
     ?>
+    </form>
     <div class="box">
     <a href="desc.php?id_buku=<?php echo $a['id_buku'] ?>" class="thumbnail"><img src="image/LibraRead.png"></a>
     <div class="container">
@@ -117,8 +157,11 @@
         <p><?php echo $a['pubyear'] ?></p>
     </div>
     <?php
+                }
+        } else {
+            echo "Data bot found";
         }
-    }
+        
     ?>
 
 </body>

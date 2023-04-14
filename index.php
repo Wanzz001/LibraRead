@@ -30,7 +30,6 @@
             background-image: url('image/bgwebjadi.png');
             background-size: cover;
             background-repeat: no-repeat;
-            overflow: hidden;
         }
         .home{
             background-color: gray;

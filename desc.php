@@ -47,6 +47,7 @@
             height: 70px;
             margin: 20px;
             float: left;
+            cursor: pointer;
         }
         .back::after{
             content: '';
@@ -139,7 +140,7 @@
     <nav>
         <img src="image/LibraRead.png" class="logo"> <a href="index.php" class="home">Home</a> <a href="about.html">About</a>
     </nav>
-    <a href="index.php"><img src="image/back.png" class="back"></a>
+    <img src="image/back.png" class="back" onclick="history.back()"></a>
     <div class="col-4 thumbnail">
         <img src="image/LibraRead.png">
     </div>
