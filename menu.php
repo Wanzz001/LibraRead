@@ -139,9 +139,9 @@
         <span></span>
       </div>
       <ul class="list-items">
-        <li><a href="#">Username</a></li>
-        <li><a href="#">Upload</a></li>
-        <li><a href="#">Logout</a></li>
+        <li <?php if ($page == '') { ?>style="background-color: #C47521;"<?php } ?>><img src="image/user.png" width="25px"><a href="#" style="color:white; font-size:25px;">Username</a></li>
+        <li <?php if ($page == 'upload') { ?>style="background-color: #C47521;"<?php } ?>><img src="image/upload.png" width="25px"><a href="#" style="color:white; font-size:25px;">Upload</a></li>
+        <li <?php if ($page == 'logout') { ?>style="background-color: #C47521;"<?php } ?>><img src="image/logout.png" width="25px"><a href="#" style="color:white; font-size:25px;">Logout</a></li>
         </ul>
     </div>
     <script>
