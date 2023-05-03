@@ -21,7 +21,7 @@
             $run = mysqli_query($connect,$query);
 
             if ($run) {
-                echo "<script> alert ('Upload Successfull');</script>";   
+                echo "<script> alert ('Upload Successfull'); history.back();</script>";   
             } else {
                 echo mysqli_error($connect);
             }
