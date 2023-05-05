@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,37 +8,43 @@
     <link rel="shortcut icon" href="image/LibraRead.png">
     <title>LibraRead</title>
     <style>
-        *{
+        * {
             margin: 0;
             border: 0;
         }
-        nav{
+
+        nav {
             display: flex;
             background-color: #d9d9d9;
             align-items: center;
         }
-        .logo{
+
+        .logo {
             height: 100px;
             margin: 10px 0 20px 30px;
         }
-        a{
+
+        a {
             text-decoration: none;
             color: black;
             margin: 0 0 0 50px;
             font-size: 50px;
         }
-        body{
+
+        body {
             background-image: url('image/bgwebjadi.png');
             background-size: cover;
             background-repeat: no-repeat;
             overflow: hidden;
         }
-        .home{
+
+        .home {
             background-color: gray;
             border-radius: 50px;
             padding: 10px 20px;
         }
-        .thumbnail{
+
+        .thumbnail {
             background-color: rgb(177, 177, 177);
             width: 200px;
             height: 300px;
@@ -47,29 +54,35 @@
             justify-content: center;
             margin: 40px 40px;
         }
-        .thumbnail img{
+
+        .thumbnail img {
             width: 150px;
         }
-        .container{
+
+        .container {
             margin: 50px 20px;
             float: left;
         }
-        .container p{
+
+        .container p {
             font-size: 24px;
             margin-bottom: 4px;
             color: white;
         }
-        .menu{
+
+        .menu {
             height: 70px;
             margin: 20px;
             float: left;
         }
-        .menu::after{
+
+        .menu::after {
             content: '';
             display: block;
             clear: both;
         }
-        *{
+
+        * {
             margin: 0px;
             padding: 0px;
         }
@@ -107,7 +120,8 @@
         #sidebar.active {
             left: 0;
         }
-        #sidebar .list-items .icons a{
+
+        #sidebar .list-items .icons a {
             height: 100%;
             width: 40px;
             display: block;
@@ -119,65 +133,69 @@
             border: 1px solid #383838;
             transition: all 0.3s ease;
         }
-        #sidebar .list-items .icons a:hover{
+
+        #sidebar .list-items .icons a:hover {
             background: #404040;
         }
+
         .list-items .icons a:first-child {
             margin-left: 0px;
         }
     </style>
 </head>
+
 <body>
     <nav>
         <img src="image/LibraRead.png" class="logo"> <a href="index.php" class="home">Home</a> <a href="about.html">About</a>
     </nav>
-    
+
     <div id="sidebar">
-      <div class="toggle-btn" onclick ="show()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul class="list-items">
-        <li <?php if ($page == '') { ?>style="background-color: #C47521;"<?php } ?>><img src="image/user.png" width="25px"><a href="#" style="color:white; font-size:25px;">Username</a></li>
-        <li <?php if ($page == 'upload') { ?>style="background-color: #C47521;"<?php } ?>><img src="image/upload.png" width="25px"><a href="#" style="color:white; font-size:25px;">Upload</a></li>
-        <li <?php if ($page == 'logout') { ?>style="background-color: #C47521;"<?php } ?>><img src="image/logout.png" width="25px"><a href="#" style="color:white; font-size:25px;">Logout</a></li>
+        <div class="toggle-btn" onclick="show()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="list-items">
+            <li style="background-color: #C47521;"><img src="image/user.png" width="25px"><a href="#" style="color:white; font-size:25px;"><?php echo $_GET['username'] ?></a></li>
+            <li style="background-color: #C47521;"><img src="image/upload.png" width="25px"><a href="upload.php" style="color:white; font-size:25px;">Upload</a></li>
+            <li style="background-color: #C47521;"><img src="image/logout.png" width="25px"><a href="login.php" style="color:white; font-size:25px;">Logout</a></li>
         </ul>
     </div>
     <script>
-      function show() {
-        document.getElementById('sidebar').classList.toggle('active');
-      }
-    </script>
-    
-    <?php 
-        include("action/connect.php");
-        $sql="select * from buku";
-        $result = mysqli_query($connect,$sql);
-        $row= mysqli_num_rows($result);
-        if ($row > 0) {
-            $loop = 0;
-            while ($a = mysqli_fetch_assoc($result)) {
-    ?>
-    <a href="desc.php?id_buku=<?php echo $a['id_buku'] ?>" class="thumbnail"><img src="image/LibraRead.png"></a>
-    <div class="container">
-        <p>Title :</p>
-        <p><?php echo $a['title'] ?></p>
-        <p>Author :</p>
-        <p><?php echo $a['author'] ?></p>
-        <p>Publisher :</p>
-        <p><?php echo $a['publisher'] ?></p>
-        <p>Publication year :</p>
-        <p><?php echo $a['pubyear'] ?></p>
-    </div>
-    <?php
-        $loop++;
-        if ($loop >= 3) {
-            break;
+        function show() {
+            document.getElementById('sidebar').classList.toggle('active');
         }
+    </script>
+
+    <?php
+    include("action/connect.php");
+    $sql = "select * from buku";
+    $result = mysqli_query($connect, $sql);
+    $row = mysqli_num_rows($result);
+    if ($row > 0) {
+        $loop = 0;
+        while ($a = mysqli_fetch_assoc($result)) {
+    ?>
+            <a href="desc.php?id_buku=<?php echo $a['id_buku'] ?>" class="thumbnail"><img src="image/LibraRead.png"></a>
+            <div class="container">
+                <p>Title :</p>
+                <p><?php echo $a['title'] ?></p>
+                <p>Author :</p>
+                <p><?php echo $a['author'] ?></p>
+                <p>Publisher :</p>
+                <p><?php echo $a['publisher'] ?></p>
+                <p>Publication year :</p>
+                <p><?php echo $a['pubyear'] ?></p>
+            </div>
+    <?php
+            $loop++;
+            if ($loop >= 3) {
+                break;
+            }
         }
     }
     ?>
 
 </body>
+
 </html>
