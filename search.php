@@ -97,7 +97,8 @@
 </head>
 <body>
     <nav>
-        <img src="image/LibraRead.png" class="logo"> <a href="index.php" class="home">Home</a> <a href="about.html">About</a>
+    <nav>
+        <img src="image/LibraRead.png" class="logo"> <a href="index.php" class="home">Home</a> <a href="about page/about-page.html">About</a>
         <form action="" method="get">
             <input type="search" name="find" class="search" placeholder="Search" required>
             <?php 

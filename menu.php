@@ -147,6 +147,15 @@
 <body>
     <nav>
         <img src="image/LibraRead.png" class="logo"> <a href="index.php" class="home">Home</a> <a href="about.html">About</a>
+        <form action="" method="get">
+            <input type="search" name="find" class="search" placeholder="Search" required>
+            <?php
+            if (isset($_GET['find'])) {
+                $find = $_GET['find'];
+                echo "<script> window.location.href='search.php?search=$find';</script>";
+            }
+            ?>
+        </form>
     </nav>
 
     <div id="sidebar">
