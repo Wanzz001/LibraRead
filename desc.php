@@ -213,8 +213,9 @@ if ($row > 0) {
                     <button name="read" class="read">Read</button>
                     <?php
                     if (isset($_POST['read'])) {
+                        $file_path = __DIR__ . '/file/Jurnal 02.pdf';
                         header("Content-Type: application/pdf");
-                        readfile('file/' . $a['file']);
+                        readfile($file_path);
                     }
                     ?>
                     <button name="download" class="download">Download</button>

@@ -70,6 +70,17 @@
             color: white;
         }
 
+        .search{
+            margin-left: 40vw;
+            height: 40px;
+            font-size: 32px;
+            width: 400px;
+            border-radius: 30px;
+            background: white url('image/search.png') no-repeat 10px;
+            background-size: 34px;
+            padding-left: 50px;
+        }
+
         .menu {
             height: 70px;
             margin: 20px;
