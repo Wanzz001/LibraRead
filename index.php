@@ -82,9 +82,15 @@
             clear: both;
         }
 
-        * {
-            margin: 0px;
-            padding: 0px;
+        .search {
+            margin-left: 40vw;
+            height: 40px;
+            font-size: 32px;
+            width: 400px;
+            border-radius: 30px;
+            background: white url('image/search.png') no-repeat 10px;
+            background-size: 34px;
+            padding-left: 50px;
         }
 
         #sidebar {
@@ -145,6 +151,15 @@
 </head>
 
 <body>
+    <?php 
+        session_start();
+        if (isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+        } else {
+            header('Location: login.php');
+            exit;
+        }
+    ?>
     <nav>
         <img src="image/LibraRead.png" class="logo"> <a href="index.php" class="home">Home</a> <a href="about.html">About</a>
         <form action="" method="get">
@@ -165,7 +180,7 @@
             <span></span>
         </div>
         <ul class="list-items">
-            <li style="background-color: #C47521;"><img src="image/user.png" width="25px"><a href="#" style="color:white; font-size:25px;"><?php echo $_GET['username'] ?></a></li>
+            <li style="background-color: #C47521;"><img src="image/user.png" width="25px"><a href="#" style="color:white; font-size:25px;"><?php echo $username ?></a></li>
             <li style="background-color: #C47521;"><img src="image/upload.png" width="25px"><a href="upload.php" style="color:white; font-size:25px;">Upload</a></li>
             <li style="background-color: #C47521;"><img src="image/logout.png" width="25px"><a href="login.php" style="color:white; font-size:25px;">Logout</a></li>
         </ul>
