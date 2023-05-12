@@ -23,7 +23,8 @@
             if ($run) {
                 echo "<script> alert ('Upload Successfull'); history.back();</script>";   
             } else {
-                echo mysqli_error($connect);
+                echo "<script> alert ('Upload Failed'); history.back();</script>";   
+
             }
 
         }

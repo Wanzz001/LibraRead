@@ -213,10 +213,10 @@
         </form>
     </nav>
 
-    <a href="index.php"><img src="image/back.png" class="back"></a>
+    <a onclick="history.back()"><img src="image/back.png" class="back"></a>
     <form action="action/uploadac.php" method="post" enctype="multipart/form-data">
         <div class="col-4">
-            <input type="file" id="fileInput" accept="application/pdf" onchange="change()" name="file" required />
+            <input type="file" id="fileInput" accept="application/pdf" onchange="change()" name="file" required>
             <label for="fileInput" id="fileInputLabel">
                 <span>Upload book/journal</span>
             </label>
@@ -243,9 +243,7 @@
                 <input type="submit" value="Upload" class="upload" name="upload">
                 <a href="index.php" class="cancel">Cancel</a>
             </div>
-            <?php if (isset($_GET['error'])) { ?>
-                <p class="alert"><?php echo $_GET['alert']; ?></p>
-            <?php } ?>
+        </div>
     </form>
     </div>
 </body>

@@ -154,13 +154,13 @@
 </head>
 <body>
     <?php
-    session_start();
-    if (isset($_SESSION['username'])) {
-        $username = $_SESSION['username'];
-    } else {
-        header('Location: login.php');
-        exit;
-    }
+    // session_start();
+    // if (isset($_SESSION['username'])) {
+    //     $username = $_SESSION['username'];
+    // } else {
+    //     header('Location: login.php');
+    //     exit;
+    // }
     ?>
     <nav>
         <img src="image/LibraRead.png" class="logo"> <a href="index.php" class="home">Home</a> <a href="about.html">About</a>
