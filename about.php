@@ -75,6 +75,7 @@
 
         .photo {
             height: 40vh;
+            margin-bottom: 20px;
         }
 
         .desc {
@@ -84,10 +85,38 @@
         }
 
         footer {
-            background-color: white;
-            opacity: 0.5;
+            background-color: rgba(255, 255, 255, 0.5);
             width: 100vw;
             height: 30vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .fl {
+            width: 30vw;
+            padding-left: 30px;
+            padding-top: 15px;
+        }
+
+        .fr {
+            width: 30vw;
+            margin-right: 10px;
+        }
+
+        .fr img {
+            width: 25vw;
+            margin-right: 10px;
+        }
+
+        .icon {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .contact{
+            font-size: 40px;
         }
     </style>
 </head>
@@ -118,7 +147,15 @@
         </pre>
     </div>
     <footer>
-        <p>Contact Us: </p>
+        <div class="fl">
+            <p class="contact">Contact Us: </p>
+            <p class="contact"><img src="image/insta.svg" class="icon">@libraread_</p>
+            <p class="contact"><img src="image/call.svg" class="icon">085795464781</p>
+            <p class="contact"><img src="image/email.svg" class="icon">libraread@gmail.com</p>
+        </div>
+        <div class="fr">
+            <img src="image/logotelu.png">
+        </div>
     </footer>
 </body>
 </html>
