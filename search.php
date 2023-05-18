@@ -109,6 +109,13 @@
         .group {
             margin-left: 50px;
         }
+
+        .nf{
+            color: white;
+            font-size: 40px;
+            margin-left: 50px;
+            margin-top: 25px;
+        }
     </style>
 </head>
 
@@ -174,10 +181,12 @@
             <p>Publication year :</p>
             <p><?php echo $a['pubyear'] ?></p>
         </div>
-<?php
+    <?php
             }
         } else {
-            echo "Data bot found";
+    ?>
+    <h1 class="nf">Not found</h1>
+<?php
         }
 
 ?>
