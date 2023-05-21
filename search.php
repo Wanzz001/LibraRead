@@ -14,6 +14,7 @@
         }
 
         nav {
+            width: 100%;
             display: flex;
             background-color: #d9d9d9;
             align-items: center;
@@ -47,7 +48,6 @@
             background-color: rgb(177, 177, 177);
             width: 200px;
             height: 300px;
-            float: left;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -55,13 +55,12 @@
         }
 
         .thumbnail img {
-            width: 150px;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
         }
 
-        .container {
-            margin: 50px 10px;
-            float: left;
-        }
+        
 
         .container p {
             font-size: 24px;
@@ -110,11 +109,27 @@
             margin-left: 50px;
         }
 
-        .nf{
+        .nf {
             color: white;
             font-size: 40px;
             margin-left: 50px;
             margin-top: 25px;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .box-container {
+            float: left;
+        }
+
+        .container {
+            margin: 50px 10px;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
         }
     </style>
 </head>
@@ -169,23 +184,26 @@
             while ($a = mysqli_fetch_assoc($result)) {
         ?>
     </form>
-    <div class="box">
-        <a href="desc.php?id_buku=<?php echo $a['id_buku'] ?>" class="thumbnail"><img src="image/LibraRead.png"></a>
-        <div class="container">
-            <p>Title :</p>
-            <p><?php echo $a['title'] ?></p>
-            <p>Author :</p>
-            <p><?php echo $a['author'] ?></p>
-            <p>Publisher :</p>
-            <p><?php echo $a['publisher'] ?></p>
-            <p>Publication year :</p>
-            <p><?php echo $a['pubyear'] ?></p>
+    <div class="box-container">
+        <div class="box">
+            <a href="desc.php?id_buku=<?php echo $a['id_buku'] ?>" class="thumbnail"><img src="<?php echo $a['cover'] ?>"></a>
+            <div class="container">
+                <p>Title :</p>
+                <p><?php echo $a['title'] ?></p>
+                <p>Author :</p>
+                <p><?php echo $a['author'] ?></p>
+                <p>Publisher :</p>
+                <p><?php echo $a['publisher'] ?></p>
+                <p>Publication year :</p>
+                <p><?php echo $a['pubyear'] ?></p>
+            </div>
         </div>
-    <?php
+    </div>
+<?php
             }
         } else {
-    ?>
-    <h1 class="nf">Not found</h1>
+?>
+<h1 class="nf">Not found</h1>
 <?php
         }
 

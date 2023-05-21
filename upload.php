@@ -54,7 +54,7 @@
             float: left;
         }
 
-        input[type="file"] {
+        #fileInput {
             display: none;
         }
 
@@ -180,21 +180,53 @@
             justify-content: start;
         }
 
-        #fileInputLabel {
+        .image-preview {
             display: flex;
             background: white;
-            background-image: url('https://cdn-icons-png.flaticon.com/128/1828/1828925.png');
             height: 400px;
-            width: 400px;
+            width: 350px;
             background-repeat: no-repeat;
             font-size: 30px;
             background-position: 50%;
-            align-items: end;
+            align-items: center;
             justify-content: center;
             float: right;
             margin-top: 120px;
             color: gray;
             cursor: pointer;
+        }
+
+        .image-preview span {
+            margin-top: 20px;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        .file {
+            background-color: white;
+            width: 80%;
+            height: 50px;
+            margin: 0 0 20px 20px;
+            border-radius: 15px;
+            font-size: 32px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 10px;
+            color: gray;
+        }
+
+        .file input{
+            font-size: 20px;
+            margin-left: 5px;
+        }
+
+        p, input::placeholder{
+            font-family: Arial, sans-serif;
         }
     </style>
 </head>
@@ -216,20 +248,28 @@
     <a onclick="history.back()"><img src="image/back.png" class="back"></a>
     <form action="action/uploadac.php" method="post" enctype="multipart/form-data">
         <div class="col-4">
-            <input type="file" id="fileInput" accept="application/pdf" onchange="change()" name="file" required>
-            <label for="fileInput" id="fileInputLabel">
-                <span>Upload book/journal</span>
+            <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)" name="cover">
+            <label for="fileInput" id="image-preview" class="image-preview">
+                <span>Upload cover</span>
             </label>
             <script>
-                function change() {
-                    var fileInput = document.getElementById('fileInput');
-                    var fileInputLabel = document.getElementById('fileInputLabel');
-                    var fileName = fileInput.files[0].name;
-                    fileInputLabel.innerHTML = '<span>' + fileName + '</span>';
-                    fileInputLabel.style.backgroundColor = '#fff';
-                    fileInputLabel.style.color = 'gray';
-                    fileInputLabel.style.backgroundImage = "url('image/LibraRead.png')";
-                    fileInputLabel.style.backgroundSize = '200px';
+                function previewImage(event) {
+                    var input = event.target;
+                    var preview = document.getElementById('image-preview');
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            var image = document.createElement('img');
+                            image.src = e.target.result;
+                            preview.innerHTML = '';
+                            preview.appendChild(image);
+                        };
+
+                        reader.readAsDataURL(input.files[0]);
+                    } else {
+                        preview.innerHTML = '<span>Upload cover</span>';
+                    }
                 }
             </script>
         </div>
@@ -239,6 +279,10 @@
             <input type="text" id="input" name="publisher" placeholder="Publisher" required>
             <input type="text" id="input" name="pubyear" placeholder="Publication Year" required>
             <input type="text" id="input" name="subject" placeholder="Subject" required>
+            <div class="file">
+                <p>Upload file :</p>
+                <input type="file" accept="application/pdf" name="file" required>
+            </div>
             <div class="button">
                 <input type="submit" value="Upload" class="upload" name="upload">
                 <a href="index.php" class="cancel">Cancel</a>

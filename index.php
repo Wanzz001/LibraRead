@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,64 +8,74 @@
     <link rel="shortcut icon" href="image/LibraRead.png">
     <title>LibraRead</title>
     <style>
-        *{
+        * {
             margin: 0;
             border: 0;
         }
-        nav{
+
+        nav {
             display: flex;
             background-color: #d9d9d9;
             align-items: center;
         }
-        .logo{
+
+        .logo {
             height: 100px;
             margin: 10px 0 20px 30px;
         }
-        a{
+
+        a {
             text-decoration: none;
             color: black;
             margin: 0 0 0 50px;
             font-size: 50px;
         }
-        body{
+
+        body {
             background-image: url('image/bgwebjadi.png');
             background-size: cover;
             background-repeat: no-repeat;
             overflow: hidden;
         }
-        .home{
+
+        .home {
             background-color: gray;
             border-radius: 50px;
             padding: 10px 20px;
         }
-        .thumbnail{
+
+        .thumbnail {
             background-color: rgb(177, 177, 177);
             width: 200px;
             height: 300px;
-            float: left;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 40px 40px;
+            margin: 10px 40px;
         }
-        .thumbnail img{
+
+        .thumbnail img {
             width: 150px;
         }
-        .container{
+
+        .container {
             margin: 50px 20px;
             float: left;
         }
-        .container p{
+
+        .container p {
             font-size: 24px;
             margin-bottom: 4px;
             color: white;
         }
-        .menu{
+
+        .menu {
             height: 70px;
             margin: 20px;
             float: left;
         }
-        .menu::after{
+
+        .menu::after {
             content: '';
             display: block;
             clear: both;
@@ -81,66 +92,67 @@
             padding-left: 50px;
         }
 
-            * {
-                margin: 0px;
-                padding: 0px;
-            }
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
 
-            #sidebar {
-                position: absolute;
-                width: 300px;
-                height: 100%;
-                background: #E2923E;
-                left: -300px;
-                transition: .4s;
-            }
+        #sidebar {
+            position: absolute;
+            width: 300px;
+            height: 100%;
+            background: #E2923E;
+            left: -300px;
+            transition: .4s;
+        }
 
-            #sidebar ul li {
-                list-style: none;
-                color: #fff;
-                font-size: 20px;
-                padding: 26px 24px;
-            }
+        #sidebar ul li {
+            list-style: none;
+            color: #fff;
+            font-size: 20px;
+            padding: 26px 24px;
+        }
 
-            #sidebar .toggle-btn {
-                position: absolute;
-                top: 30px;
-                left: 330px;
-            }
+        #sidebar .toggle-btn {
+            position: absolute;
+            top: 30px;
+            left: 330px;
+        }
 
-            .toggle-btn span {
-                width: 45px;
-                height: 4px;
-                background: #FFFFFF;
-                display: block;
-                margin-top: 9px;
-            }
+        .toggle-btn span {
+            width: 45px;
+            height: 4px;
+            background: #FFFFFF;
+            display: block;
+            margin-top: 9px;
+        }
 
-            #sidebar.active {
-                left: 0;
-            }
+        #sidebar.active {
+            left: 0;
+        }
 
-            #sidebar .list-items .icons a {
-                height: 100%;
-                width: 40px;
-                display: block;
-                margin: 0 5px;
-                font-size: 18px;
-                color: #f2f2f2;
-                background: #4a4a4a;
-                border-radius: 5px;
-                border: 1px solid #383838;
-                transition: all 0.3s ease;
-            }
+        #sidebar .list-items .icons a {
+            height: 100%;
+            width: 40px;
+            display: block;
+            margin: 0 5px;
+            font-size: 18px;
+            color: #f2f2f2;
+            background: #4a4a4a;
+            border-radius: 5px;
+            border: 1px solid #383838;
+            transition: all 0.3s ease;
+        }
 
-            #sidebar .list-items .icons a:hover {
-                background: #404040;
-            }
+        #sidebar .list-items .icons a:hover {
+            background: #404040;
+        }
 
         .list-items .icons a:first-child {
             margin-left: 0px;
         }
-        .search{
+
+        .search {
             margin-left: 40vw;
             height: 40px;
             font-size: 32px;
@@ -150,8 +162,11 @@
             background-size: 34px;
             padding-left: 50px;
         }
+
+        .
     </style>
 </head>
+
 <body>
     <?php
     // session_start();
@@ -174,7 +189,7 @@
             ?>
         </form>
     </nav>
-    
+
     <div id="sidebar">
         <<<<<<< HEAD <div class="toggle-btn" onclick="show()">
             <span></span>
@@ -197,89 +212,92 @@
             <li <?php if ($page == 'logout') { ?>style="background-color: #C47521;" <?php } ?>><img src="image/logout.png" width="25px"><a href="#" style="color:white; font-size:25px;">Logout</a></li>
             >>>>>>> 4e3875aa09d56236c9e7e2f4ac5d4a7aea2d12eb
         </ul>
-    </div>
-    <script>
-        function show() {
-            document.getElementById('sidebar').classList.toggle('active');
-        }
-    </script>
-    <br><br><br><br>
-    <a href="foryou.php" style="color:white;">For You ></a>
-    <br>
-    <?php 
+        </div>
+        <script>
+            function show() {
+                document.getElementById('sidebar').classList.toggle('active');
+            }
+        </script>
+        <br><br><br><br>
+        <a href="foryou.php" style="color:white;">For You ></a>
+        <br>
+        <?php
         include("action/connect.php");
-        $sql="select * from buku";
-        $result = mysqli_query($conn,$sql);
-        $row= mysqli_num_rows($result);
+        $sql = "select * from buku";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_num_rows($result);
         if ($row > 0) {
             $loop = 0;
             while ($a = mysqli_fetch_assoc($result)) {
-    ?>
-    <a href="desc.php?id_buku=<?php echo $a['id_buku'] ?>" class="thumbnail"><img src="image/LibraRead.png"></a>
-    <div class="container">
-        <p>Title :</p>
-        <p><?php echo $a['title'] ?></p>
-        <p>Author :</p>
-        <p><?php echo $a['author'] ?></p>
-        <p>Publisher :</p>
-        <p><?php echo $a['publisher'] ?></p>
-        <p>Publication year :</p>
-        <p><?php echo $a['pubyear'] ?></p>
-    </div>
-    <?php
-        $loop++;
-        if ($loop >= 3) {
-            break;
+        ?>
+                <div class="view">
+                    <a href="desc.php?id_buku=<?php echo $a['id_buku'] ?>" class="thumbnail"><img src="image/LibraRead.png"></a>
+                    <div class="container">
+                        <p>Title :</p>
+                        <p><?php echo $a['title'] ?></p>
+                        <p>Author :</p>
+                        <p><?php echo $a['author'] ?></p>
+                        <p>Publisher :</p>
+                        <p><?php echo $a['publisher'] ?></p>
+                        <p>Publication year :</p>
+                        <p><?php echo $a['pubyear'] ?></p>
+                    </div>
+                </div>
+        <?php
+                $loop++;
+                if ($loop >= 3) {
+                    break;
+                }
+            }
         }
-        }
-    }
-    ?>
-    <a href="all.php">
-    <div class="thumbnail">
-    <center>
-    <img style="width:70px;" src="image/right.png">
-    <p style="font-size:30px;"><br>See all</p>
-    </center>
-    </div>
-    </a>
-    <br>
-    <a href="foryou.php" style="color:white;">Top Rated ></a>
-    <br>
-    <?php 
+        ?>
+        <a href="all.php">
+            <div class="thumbnail">
+                <center>
+                    <img style="width:70px;" src="image/right.png">
+                    <p style="font-size:30px;"><br>See all</p>
+                </center>
+            </div>
+        </a>
+        <br>
+        <a href="foryou.php" style="color:white;">Top Rated ></a>
+        <br>
+        <?php
         include("action/connect.php");
-        $sql="select * from buku";
-        $result = mysqli_query($conn,$sql);
-        $row= mysqli_num_rows($result);
+        $sql = "select * from buku";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_num_rows($result);
         if ($row > 0) {
             $loop = 0;
             while ($a = mysqli_fetch_assoc($result)) {
-    ?>
-    <a href="desc.php?id_buku=<?php echo $a['id_buku'] ?>" class="thumbnail"><img src="image/LibraRead.png"></a>
-    <div class="container">
-        <p>Title :</p>
-        <p><?php echo $a['title'] ?></p>
-        <p>Author :</p>
-        <p><?php echo $a['author'] ?></p>
-        <p>Publisher :</p>
-        <p><?php echo $a['publisher'] ?></p>
-        <p>Publication year :</p>
-        <p><?php echo $a['pubyear'] ?></p>
-    </div>
-    <?php
-        $loop++;
-        if ($loop >= 3) {
-            break;
+        ?>
+                <a href="desc.php?id_buku=<?php echo $a['id_buku'] ?>" class="thumbnail"><img src="image/LibraRead.png"></a>
+                <div class="container">
+                    <p>Title :</p>
+                    <p><?php echo $a['title'] ?></p>
+                    <p>Author :</p>
+                    <p><?php echo $a['author'] ?></p>
+                    <p>Publisher :</p>
+                    <p><?php echo $a['publisher'] ?></p>
+                    <p>Publication year :</p>
+                    <p><?php echo $a['pubyear'] ?></p>
+                </div>
+        <?php
+                $loop++;
+                if ($loop >= 3) {
+                    break;
+                }
+            }
         }
-        }
-    }
-    ?>
-    <a href="all.php">
-    <div class="thumbnail">
-    <center>
-    <img style="width:70px;" src="image/right.png">
-    <p style="font-size:30px;"><br>See all</p>
-    </center>
-    </div>
-    </a>
+        ?>
+        <a href="all.php">
+            <div class="thumbnail">
+                <center>
+                    <img style="width:70px;" src="image/right.png">
+                    <p style="font-size:30px;"><br>See all</p>
+                </center>
+            </div>
+        </a>
 </body>
+
 </html>

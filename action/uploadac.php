@@ -13,11 +13,20 @@
             $subject =  $_POST['subject'];
             $filename = $_FILES['file']['name'];
             $filetmp = $_FILES['file']['tmp_name'];
+            $covername = $_FILES['cover']['name'];
+            $covertmp = $_FILES['cover']['tmp_name'];
             
-            $path = "../file/".$filename;
+            $pathfile = "../file/".$filename;
+            $pathcover = "../cover/".$covername;
 
-            $query = "insert into buku values ('','$title','$author','$publisher','$pubyear','$subject','$filename')";
-            move_uploaded_file($filetmp,$path);
+            if (empty($covername)) {
+                $covername = "../image/LibraRead.png";
+                $pathcover = "../cover/".$covername;
+            }
+
+            $query = "insert into buku values ('','$title','$author','$publisher','$pubyear','$subject','$filename','$pathcover')";
+            move_uploaded_file($filetmp,$pathfile);
+            move_uploaded_file($covertmp,$pathcover);
             $run = mysqli_query($connect,$query);
 
             if ($run) {
