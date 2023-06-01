@@ -1,12 +1,16 @@
 <?php 
     include 'connect.php';
+    session_start();
+    if (!isset($_SESSION['user'])) {
+        header("Location: login.php");
+    }
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 
-        
-    if (isset($_FILES['file'])) {
+    if (isset($_SESSION['user'])) {
         if (isset($_POST['upload'])) {
-            if (isset($_SESSION['user'])) {
+            if (isset($_FILES['file'])) {
+            
             $title =  $_POST['title'];
             $author =  $_POST['author'];
             $publisher =  $_POST['publisher'];
@@ -40,16 +44,11 @@
             } else {
                 echo "<script> alert ('Upload Failed'); history.back();</script>";
                 exit();   
-
             }
-            } else {
-                echo "<script> alert ('Silahkan login'); history.back();</script>";   
-
             }
-
         }
+    } else {
+        echo "<script> alert ('Illegal Access!'); history.back();</script>";
+        exit();
     }
-        
-    
-
-?>
+    ?>
