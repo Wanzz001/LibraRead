@@ -5,19 +5,19 @@
     $pass=$_POST['password'];
     $confirmpw=$_POST['confirmpassword'];
     
-    $sql = mysqli_query($connect, "select * from user where username='$user' and email='$email'");
+    $sql = mysqli_query($conn, "select * from user where username='$user' and email='$email'");
     $check = mysqli_num_rows($sql);
 
     if ($check > 0) {
         if ($pass == $confirmpw) {
-            $update = mysqli_query($connect, "update user set password='$pass' where username='$user' and email='$email'");
+            $update = mysqli_query($conn, "update user set password='$pass' where username='$user' and email='$email'");
             echo "<script>alert('Password has been updated'); window.location.href='../login.php';</script>";
         } else {
-            header("Location: ../resetpw.php?error=Password and confirm password are different");
+            echo "<script>alert('Password and confirm password are different'); history.back();</script>";
             exit();
         }
     } else{
-        header("Location: ../resetpw.php?error=Email or username is incorrect");
+        echo "<script>alert('Email or username is incorrect'); history.back();</script>";
         exit();
     }
 ?>

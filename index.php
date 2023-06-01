@@ -1,109 +1,140 @@
+<?php
+session_start();
+include("action/connect.php");
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="image/LibraRead.png">
+    <link rel="stylesheet" href="style/style.css">
     <title>LibraRead</title>
-    <style>
-        *{
-            margin: 0;
-            border: 0;
-        }
-        nav{
-            display: flex;
-            background-color: #d9d9d9;
-            align-items: center;
-        }
-        .logo{
-            height: 100px;
-            margin: 10px 0 20px 30px;
-        }
-        a{
-            text-decoration: none;
-            color: black;
-            margin: 0 0 0 50px;
-            font-size: 50px;
-        }
-        body{
-            background-image: url('image/bgwebjadi.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            overflow: hidden;
-        }
-        .home{
-            background-color: gray;
-            border-radius: 50px;
-            padding: 10px 20px;
-        }
-        .thumbnail{
-            background-color: rgb(177, 177, 177);
-            width: 200px;
-            height: 300px;
-            float: left;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 40px 40px;
-        }
-        .thumbnail img{
-            width: 150px;
-        }
-        .container{
-            margin: 50px 20px;
-            float: left;
-        }
-        .container p{
-            font-size: 24px;
-            margin-bottom: 4px;
-            color: white;
-        }
-        .menu{
-            height: 70px;
-            margin: 20px;
-            float: left;
-        }
-        .menu::after{
-            content: '';
-            display: block;
-            clear: both;
-        }
-    </style>
 </head>
+
 <body>
     <nav>
-        <img src="image/LibraRead.png" class="logo"> <a href="index.php" class="home">Home</a> <a href="about.html">About</a>
+        <img src="image/LibraRead.png" class="logo"> 
+        <a href="index.php" class="home">Home</a> 
+        <a href="about.php" class="about">About</a>
+        <form action="search.php" method="get" class="fs">
+            <input type="search" name="find" class="search" placeholder="Search" required>
+            <?php
+            if (isset($_GET['find'])) {
+                $find = $_GET['find'];
+                echo "<script> window.location.href='search.php?search=$find';</script>";
+            }
+            ?>
+        </form>
     </nav>
-    <img src="image/menu.png" class="menu">
-    <?php 
-        include("action/connect.php");
-        $sql="select * from buku";
-        $result = mysqli_query($connect,$sql);
-        $row= mysqli_num_rows($result);
-        if ($row > 0) {
-            $loop = 0;
-            while ($a = mysqli_fetch_assoc($result)) {
-    ?>
-    <a href="desc.php?id_buku=<?php echo $a['id_buku'] ?>" class="thumbnail"><img src="image/LibraRead.png"></a>
-    <div class="container">
-        <p>Title :</p>
-        <p><?php echo $a['title'] ?></p>
-        <p>Author :</p>
-        <p><?php echo $a['author'] ?></p>
-        <p>Publisher :</p>
-        <p><?php echo $a['publisher'] ?></p>
-        <p>Publication year :</p>
-        <p><?php echo $a['pubyear'] ?></p>
-    </div>
-    <?php
-        $loop++;
-        if ($loop >= 3) {
-            break;
-        }
-        }
-    }
-    ?>
 
+    <div id="sidebar">
+        <div class="toggle-btn" onclick="show()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="list-items">
+            <li <?php if ($page == '') { ?>style="background-color: #C47521;" <?php } ?>><img src="image/user.png" width="25px"><a href="#" style="color:white; font-size:25px;"><?php echo $_SESSION['user']['username']; ?></a></li>
+            <li <?php if ($page == 'upload') { ?>style="background-color: #C47521;" <?php } ?>><img src="image/upload.png" width="25px"><a href="upload.php" style="color:white; font-size:25px;">Upload</a></li>
+            <li <?php if ($page == 'logout') { ?>style="background-color: #C47521;" <?php } ?>><img src="image/logout.png" width="25px"><a href="logout.php" style="color:white; font-size:25px;">Logout</a></li>
+        </ul>
+    </div>
+    <script>
+        function show() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+    </script>
+    <br><br><br><br><br><br>
+    <div class="view">
+        <a href="foryou.php" style="color:white; grid-area: head1; font-size: 40px;">For You ></a>
+        <br>
+        <div style="grid-area: content1;" class="grid-content">
+            <?php
+            $sql = "select * from buku order by rand()";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_num_rows($result);
+            if ($row > 0) {
+                $loop = 0;
+                while ($a = mysqli_fetch_assoc($result)) {
+            ?>
+                    <div class="box">
+                        <a href="desc.php?id=<?php echo $a['id'] ?>" class="thumbnail"><img src="<?php echo $a['sampul'] ?>"></a>
+                        <div class="container">
+                            <p>Title :</p>
+                            <p><?php echo $a['title'] ?></p>
+                            <p>Author :</p>
+                            <p><?php echo $a['author'] ?></p>
+                            <p>Publisher :</p>
+                            <p><?php echo $a['publisher'] ?></p>
+                            <p>Publication year :</p>
+                            <p><?php echo $a['pubyear'] ?></p>
+                        </div>
+                    </div>
+            <?php
+                    $loop++;
+                    if ($loop >= 3) {
+                        break;
+                    }
+                }
+            }
+            ?>
+            <div class="box">
+                <a href="foryou.php">
+                    <div class="thumbnail">
+                        <img style="width:70px;" src="image/right.png">
+                        <p style="font-size:30px; color:black;"><br>See all</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <a href="recenly.php" style="color:white; grid-area: head2; font-size: 40px;">Recently Added ></a>
+        <br>
+        <div style="grid-area: content2;" class="grid-content">
+            <?php
+            include("action/connect.php");
+            $sql = "select * from buku order by id desc";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_num_rows($result);
+            if ($row > 0) {
+                $loop = 0;
+                while ($a = mysqli_fetch_assoc($result)) {
+            ?>
+                    <div class="box">
+                        <a href="desc.php?id=<?php echo $a['id'] ?>" class="thumbnail"><img src="<?php echo $a['sampul'] ?>"></a>
+                        <div class="container">
+                            <p>Title :</p>
+                            <p><?php echo $a['title'] ?></p>
+                            <p>Author :</p>
+                            <p><?php echo $a['author'] ?></p>
+                            <p>Publisher :</p>
+                            <p><?php echo $a['publisher'] ?></p>
+                            <p>Publication year :</p>
+                            <p><?php echo $a['pubyear'] ?></p>
+                        </div>
+                    </div>
+            <?php
+                    $loop++;
+                    if ($loop >= 3) {
+                        break;
+                    }
+                }
+            } ?>
+            <div class="box">
+                <a href="recenly.php">
+                    <div class="thumbnail">
+                        <img style="width:70px;" src="image/right.png">
+                        <p style="font-size:30px; color:black;"><br>See all</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

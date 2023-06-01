@@ -1,9 +1,6 @@
 <?php 
-    $server="localhost";
-    $username="root";
-    $password="";
-    $db="libra_read";
-
-    $connect=mysqli_connect($server,$username,$password,$db);
-
-?>
+  $conn= mysqli_connect('localhost','root','','libranew');
+    if(!$conn) {
+        die ("Connenction failed: ".mysqli_connect_error());
+    }
+    ?>

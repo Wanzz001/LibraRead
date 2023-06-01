@@ -1,0 +1,665 @@
+* {
+    margin: 0;
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    background-color: #d9d9d9;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+}
+
+.logo {
+    height: 100px;
+    margin: 10px 0 20px 30px;
+}
+
+.home, .about {
+    text-decoration: none;
+    color: black;
+    margin: 0 0 0 50px;
+    font-size: 50px;
+}
+
+body {
+    background-image: url('../image/bgwebjadi.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: auto;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+.home {
+    background-color: gray;
+    border-radius: 50px;
+    padding: 10px 20px;
+}
+
+.search {
+    height: 40px;
+    font-size: 32px;
+    width: 400px;
+    border-radius: 30px;
+    background: white url('../image/search.png') no-repeat 10px;
+    background-size: 34px;
+    padding-left: 50px;
+    margin-right: 30px;
+}
+
+.fs{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+.thumbnail {
+    background-color: rgb(177, 177, 177);
+    width: 200px;
+    height: 300px;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 20px;
+    flex-direction: column;
+}
+
+.thumbnail img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.container p {
+    font-size: 24px;
+    margin-bottom: 4px;
+    color: white;
+}
+
+.menu {
+    height: 70px;
+    margin: 20px;
+}
+
+#sidebar {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    background: #E2923E;
+    left: -300px;
+    transition: .4s;
+}
+
+#sidebar ul li {
+    list-style: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 26px 24px;
+}
+
+#sidebar .toggle-btn {
+    position: absolute;
+    top: 30px;
+    left: 330px;
+}
+
+.toggle-btn span {
+    width: 45px;
+    height: 4px;
+    background: #FFFFFF;
+    display: block;
+    margin-top: 9px;
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+#sidebar .list-items .icons a {
+    height: 100%;
+    width: 40px;
+    display: block;
+    margin: 0 5px;
+    font-size: 18px;
+    color: #f2f2f2;
+    background: #4a4a4a;
+    border-radius: 5px;
+    border: 1px solid #383838;
+    transition: all 0.3s ease;
+}
+
+#sidebar .list-items .icons a:hover {
+    background: #404040;
+}
+
+.list-items .icons a:first-child {
+    margin-left: 0px;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+}
+
+.container {
+    margin: 50px 10px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 200px;
+}
+
+.box-container {
+    float: left;
+}
+
+.header {
+    width: 100%;
+    border: 1px solid black;
+    height: fit-content;
+}
+
+.header a {
+    color: white;
+}
+
+.view {
+    display: grid;
+    grid-template-areas: "head1"
+        "content1"
+        "head2"
+        "content2";
+}
+
+.grid-content {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+    ;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+#inputupload {
+    margin: 0 0 20px 20px;
+    width: 80%;
+    height: 50px;
+    font-size: 32px;
+    border-radius: 15px;
+    border: 0;
+    padding-left: 10px;
+}
+
+.upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://cdn-icons-png.flaticon.com/128/9355/9355940.png');
+    background-size: 40px;
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 60px;
+    font-size: 40px;
+    background-color: rgb(40, 236, 40);
+    background-position: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.cancel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://cdn-icons-png.flaticon.com/128/1828/1828778.png');
+    background-size: 40px;
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 60px;
+    font-size: 40px;
+    background-color: rgb(255, 0, 0);
+    background-position: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border: 1px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.image-preview {
+    display: flex;
+    background: white;
+    height: 400px;
+    width: 350px;
+    background-repeat: no-repeat;
+    font-size: 30px;
+    background-position: 50%;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    margin-top: 120px;
+    color: gray;
+    cursor: pointer;
+}
+
+.image-preview span {
+    margin-top: 20px;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.file {
+    background-color: white;
+    width: 80%;
+    height: 50px;
+    margin: 0 0 20px 20px;
+    border-radius: 15px;
+    font-size: 32px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+    color: gray;
+}
+
+.file input {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+p,input::placeholder {
+    font-family: Arial, sans-serif;
+}
+
+.back {
+    height: 70px;
+    margin: 20px;
+}
+
+.upload {
+    float: left;
+}
+
+#fileInput {
+    display: none;
+}
+
+.conup {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tag {
+    margin: 50px 0 20px 50px;
+    font-size: 40px;
+    color: white;
+}
+
+.sort {
+    background-color: transparent;
+    margin-right: 20px;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+.group {
+    margin-left: 50px;
+}
+.nf {
+    color: white;
+    font-size: 40px;
+    margin-left: 50px;
+    margin-top: 25px;
+}
+
+.lv {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.lv img {
+    width: 40%;
+}
+
+.rv {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d9d9d9;
+    height: 100vh;
+}
+
+.rv .loglogo{
+    display: none;
+}
+
+.rv h1 {
+    padding: 15px 0 0 20px;
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+#input {
+    margin: 0 0 20px 20px;
+    width: 80%;
+    height: 50px;
+    font-size: 32px;
+    border-radius: 15px;
+    border: 0;
+    padding-left: 60px;
+}
+
+.un {
+    background-image: url('https://cdn-icons-png.flaticon.com/128/747/747376.png');
+    position: left;
+    background-size: 37px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+.pw {
+    background-image: url('https://cdn-icons-png.flaticon.com/128/3064/3064197.png');
+    position: left;
+    background-size: 37px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+.fgpw {
+    padding-left: 20px;
+    margin: 10px 0 20px 0;
+    font-size: 20px;
+}
+
+.fgpw a {
+    margin-left: 5px;
+    text-decoration: none;
+    color: #275ADD;
+}
+
+.rv .login {
+    display: block;
+    margin: auto;
+    font-size: 30px;
+    background-color: #FF2C2C;
+    height: 60px;
+    width: 50%;
+    border-radius: 30px;
+}
+
+.rv .acc {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+.rv .acc a {
+    text-decoration: none;
+    color: #275ADD;
+}
+
+.error {
+    background-color: #FF2C2C;
+    font-size: 30px;
+    margin: 9% 30px 0 20px;
+    margin-left: 20px;
+    padding: 30px;
+}
+
+.logview{
+    display: flex;
+    flex-direction: row;
+}
+
+.thumbnaildesc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d9d9d9;
+    width: 300px;
+    height: 400px;
+    margin-right: 2vw;
+}
+.thumbnaildesc img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.containerdesc{
+    margin-left: 20px;
+    margin-top: 10vh;
+}
+.containerdesc p{
+    font-size: 30px;
+    color: white;
+    margin-bottom: 5px;
+}
+.containerdesc .bold{
+    font-weight: bold;
+}
+.read{
+    background-color: #ff3d00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://cdn-icons-png.flaticon.com/128/828/828370.png');
+    background-size: 40px;
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 60px;
+    font-size: 40px;
+    background-position: 30px;
+    margin-left: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.download {
+    background-color: #00C008;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://cdn-icons-png.flaticon.com/128/786/786223.png');
+    background-size: 40px;
+    background-repeat: no-repeat;
+    width: 340px;
+    height: 60px;
+    font-size: 40px;
+    background-position: 30px;
+    margin-left: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    color: black;
+}
+
+.descclick{
+    display: flex;
+    flex-direction: row;
+}
+
+.pdf-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pdf-object {
+    width: 100%;
+    height: 100%;
+}
+
+.viewdesc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.em {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/561/561127.png');
+    position: left;
+    background-size: 37px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+.loginback {
+    text-decoration: none;
+    color: black;
+    font-size: 50px;
+}
+
+.loginback .logback {
+    height: 40px;
+    margin-left: 5px;
+}
+
+.backview{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+
+@media only screen and (max-width: 990px) and (min-width: 828px) {
+    .logo{
+        display: none;
+    }
+
+    nav{
+        padding: 10px 0;
+    }
+}
+
+@media only screen and (max-width: 828px) {
+    nav{
+        width: 100%;
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        align-items: center;
+        justify-content: center;
+        place-items: center;
+        height: max-content;
+    }
+    .search{
+        width: 80%;
+        margin: auto;
+    }
+
+    .logo{
+        display: none;
+    }
+    .home, .about{
+        margin: 0 0 20px 0;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+    .lv{
+        display: none;
+    }
+
+    .rv{
+        width: 100%;
+    }
+
+    .rv div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .rv .loglogo {
+        display: block;
+        width: 30%;
+    }
+
+    #input{
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .viewdesc{
+        flex-direction: column;
+    }
+}

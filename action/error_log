@@ -1,0 +1,20 @@
+[09-May-2023 05:15:42 UTC] PHP Notice:  Undefined variable: connect in /home/azkafamy/public_html/libraread/action/uploadac.php on line 21
+[09-May-2023 05:15:42 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/azkafamy/public_html/libraread/action/uploadac.php on line 21
+[09-May-2023 05:15:42 UTC] PHP Notice:  Undefined variable: connect in /home/azkafamy/public_html/libraread/action/uploadac.php on line 27
+[09-May-2023 05:15:42 UTC] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home/azkafamy/public_html/libraread/action/uploadac.php on line 27
+[18-May-2023 14:15:51 UTC] PHP Notice:  Undefined variable: connect in /home/azkafamy/public_html/libraread/action/resetac.php on line 8
+[18-May-2023 14:15:51 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/azkafamy/public_html/libraread/action/resetac.php on line 8
+[18-May-2023 14:15:51 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/azkafamy/public_html/libraread/action/resetac.php on line 9
+[18-May-2023 14:17:07 UTC] PHP Notice:  Undefined variable: connect in /home/azkafamy/public_html/libraread/action/resetac.php on line 8
+[18-May-2023 14:17:07 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/azkafamy/public_html/libraread/action/resetac.php on line 8
+[18-May-2023 14:17:07 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/azkafamy/public_html/libraread/action/resetac.php on line 9
+[21-May-2023 11:54:38 UTC] PHP Warning:  move_uploaded_file(../cover/WhatsApp Image 2023-04-06 at 11.29.47.jpeg): failed to open stream: No such file or directory in /home/azkafamy/public_html/libraread/action/uploadac.php on line 29
+[21-May-2023 11:54:38 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpXp8QFk' to '../cover/WhatsApp Image 2023-04-06 at 11.29.47.jpeg' in /home/azkafamy/public_html/libraread/action/uploadac.php on line 29
+[21-May-2023 11:54:38 UTC] PHP Notice:  Undefined variable: connect in /home/azkafamy/public_html/libraread/action/uploadac.php on line 30
+[21-May-2023 11:54:38 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/azkafamy/public_html/libraread/action/uploadac.php on line 30
+[21-May-2023 11:54:54 UTC] PHP Warning:  move_uploaded_file(../cover/221890001958_PAS_FOTO_1.jpg): failed to open stream: No such file or directory in /home/azkafamy/public_html/libraread/action/uploadac.php on line 29
+[21-May-2023 11:54:54 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpaeZxch' to '../cover/221890001958_PAS_FOTO_1.jpg' in /home/azkafamy/public_html/libraread/action/uploadac.php on line 29
+[21-May-2023 11:54:54 UTC] PHP Notice:  Undefined variable: connect in /home/azkafamy/public_html/libraread/action/uploadac.php on line 30
+[21-May-2023 11:54:54 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/azkafamy/public_html/libraread/action/uploadac.php on line 30
+[21-May-2023 11:59:14 UTC] PHP Warning:  move_uploaded_file(../cover/logotelu.png): failed to open stream: No such file or directory in /home/azkafamy/public_html/libraread/action/uploadac.php on line 29
+[21-May-2023 11:59:14 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpaGf2ke' to '../cover/logotelu.png' in /home/azkafamy/public_html/libraread/action/uploadac.php on line 29
