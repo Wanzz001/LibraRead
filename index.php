@@ -40,9 +40,9 @@ if (!isset($_SESSION['user'])) {
             <span></span>
         </div>
         <ul class="list-items">
-            <li <?php if ($page == '') { ?>style="background-color: #C47521;" <?php } ?>><img src="image/user.png" width="25px"><a href="#" style="color:white; font-size:25px;"><?php echo $_SESSION['user']['username']; ?></a></li>
-            <li <?php if ($page == 'upload') { ?>style="background-color: #C47521;" <?php } ?>><img src="image/upload.png" width="25px"><a href="upload.php" style="color:white; font-size:25px;">Upload</a></li>
-            <li <?php if ($page == 'logout') { ?>style="background-color: #C47521;" <?php } ?>><img src="image/logout.png" width="25px"><a href="logout.php" style="color:white; font-size:25px;">Logout</a></li>
+            <li <?php if ($page == '') { ?>style="background-color: #C47521;" <?php } ?>><img src="image/user.png" width="30px"><a href="#" style="color:white; font-size:30px; margin-left: 10px;"><?php echo $_SESSION['user']['username']; ?></a></li>
+            <li <?php if ($page == 'upload') { ?>style="background-color: #C47521;" <?php } ?>><img src="image/upload.png" width="30px"><a href="upload.php" style="color:white; font-size:30px; margin-left: 10px;">Upload</a></li>
+            <li <?php if ($page == 'logout') { ?>style="background-color: #C47521;" <?php } ?>><img src="image/logout.png" width="30px"><a href="logout.php" style="color:white; font-size:30px; margin-left: 10px;">Logout</a></li>
         </ul>
     </div>
     <script>
@@ -52,7 +52,7 @@ if (!isset($_SESSION['user'])) {
     </script>
     <br><br><br><br><br><br>
     <div class="view">
-        <a href="foryou.php" style="color:white; grid-area: head1; font-size: 40px;">For You ></a>
+        <a href="foryou.php" style="color:white; grid-area: head1; font-size: 40px; margin-left: 30px;">For You ></a>
         <br>
         <div style="grid-area: content1;" class="grid-content">
             <?php
@@ -93,7 +93,7 @@ if (!isset($_SESSION['user'])) {
                 </a>
             </div>
         </div>
-        <a href="recenly.php" style="color:white; grid-area: head2; font-size: 40px;">Recently Added ></a>
+        <a href="recenly.php" style="color:white; grid-area: head2; font-size: 40px; margin-left: 30px;">Recently Added ></a>
         <br>
         <div style="grid-area: content2;" class="grid-content">
             <?php
