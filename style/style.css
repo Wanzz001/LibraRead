@@ -77,7 +77,7 @@ body {
 }
 
 .container p {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 4px;
     color: white;
 }
@@ -100,7 +100,6 @@ body {
     list-style: none;
     color: #fff;
     font-size: 20px;
-    padding: 26px 24px;
 }
 
 #sidebar .toggle-btn {
@@ -281,6 +280,7 @@ body {
     margin-top: 20px;
     border: 1px solid black;
     font-family: Arial, Helvetica, sans-serif;
+    color: black;
 }
 
 .button {
@@ -300,7 +300,7 @@ body {
     align-items: center;
     justify-content: center;
     float: right;
-    margin-top: 120px;
+    margin-top: 10px;
     color: gray;
     cursor: pointer;
 }
@@ -355,6 +355,7 @@ p,input::placeholder {
     margin-top: 120px;
     display: flex;
     flex-direction: column;
+    width: 45vw;
 }
 
 .tag {
@@ -469,14 +470,6 @@ p,input::placeholder {
 .rv .acc a {
     text-decoration: none;
     color: #275ADD;
-}
-
-.error {
-    background-color: #FF2C2C;
-    font-size: 30px;
-    margin: 9% 30px 0 20px;
-    margin-left: 20px;
-    padding: 30px;
 }
 
 .logview{
@@ -597,6 +590,18 @@ p,input::placeholder {
     width: 100%;
 }
 
+ul{
+    padding-inline-start: 0px;
+}
+
+.uploadview{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+}
+
 
 @media only screen and (max-width: 990px) and (min-width: 828px) {
     .logo{
@@ -630,6 +635,8 @@ p,input::placeholder {
         margin: 0 0 20px 0;
     }
 
+
+
 }
 
 @media only screen and (max-width: 800px) {
@@ -661,5 +668,22 @@ p,input::placeholder {
 @media only screen and (max-width: 1000px) {
     .viewdesc{
         flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .uploadview{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .conup{
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 545px) {
+    .upload,.cancel{
+        background-image: none;
     }
 }

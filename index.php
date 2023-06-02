@@ -19,8 +19,8 @@ if (!isset($_SESSION['user'])) {
 
 <body>
     <nav>
-        <img src="image/LibraRead.png" class="logo"> 
-        <a href="index.php" class="home">Home</a> 
+        <img src="image/LibraRead.png" class="logo">
+        <a href="index.php" class="home">Home</a>
         <a href="about.php" class="about">About</a>
         <form action="search.php" method="get" class="fs">
             <input type="search" name="find" class="search" placeholder="Search" required>
@@ -67,13 +67,13 @@ if (!isset($_SESSION['user'])) {
                         <a href="desc.php?id=<?php echo $a['id'] ?>" class="thumbnail"><img src="<?php echo $a['sampul'] ?>"></a>
                         <div class="container">
                             <p>Title :</p>
-                            <p><?php echo $a['title'] ?></p>
+                            <p><?php echo substr($a['title'], 0, 25)  ?></p>
                             <p>Author :</p>
-                            <p><?php echo $a['author'] ?></p>
+                            <p><?php echo substr($a['author'], 0, 25) ?></p>
                             <p>Publisher :</p>
-                            <p><?php echo $a['publisher'] ?></p>
+                            <p><?php echo substr($a['publisher'], 0, 25) ?></p>
                             <p>Publication year :</p>
-                            <p><?php echo $a['pubyear'] ?></p>
+                            <p style="font-weight: bold;"><?php echo $a['pubyear'] ?></p>
                         </div>
                     </div>
             <?php
@@ -109,13 +109,13 @@ if (!isset($_SESSION['user'])) {
                         <a href="desc.php?id=<?php echo $a['id'] ?>" class="thumbnail"><img src="<?php echo $a['sampul'] ?>"></a>
                         <div class="container">
                             <p>Title :</p>
-                            <p><?php echo $a['title'] ?></p>
+                            <p style="font-weight: bold;"><?php echo substr($a['title'], 0, 25)  ?></p>
                             <p>Author :</p>
-                            <p><?php echo $a['author'] ?></p>
+                            <p style="font-weight: bold;"><?php echo substr($a['author'], 0, 25) ?></p>
                             <p>Publisher :</p>
-                            <p><?php echo $a['publisher'] ?></p>
+                            <p style="font-weight: bold;"><?php echo substr($a['publisher'], 0, 25) ?></p>
                             <p>Publication year :</p>
-                            <p><?php echo $a['pubyear'] ?></p>
+                            <p style="font-weight: bold;"><?php echo $a['pubyear'] ?></p>
                         </div>
                     </div>
             <?php

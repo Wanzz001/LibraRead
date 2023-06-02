@@ -16,7 +16,7 @@ if (isset($_POST['login'])) {
         $_SESSION['user'] = $data;
         header("Location: index.php");
     } else {
-        echo '<script>alert("Akun tidak ditemukan!")</script>';
+        echo '<script>alert("Account not found!")</script>';
     }
 }
 ?>

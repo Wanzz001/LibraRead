@@ -66,27 +66,27 @@ if (!isset($_SESSION['user'])) {
             while ($a = mysqli_fetch_assoc($result)) {
         ?>
     </form>
-     <div class="box-container">
+    <div class="box-container">
         <div class="box">
             <a href="desc.php?id=<?php echo $a['id'] ?>" class="thumbnail"><img src="<?php echo $a['sampul'] ?>"></a>
             <div class="container">
                 <p>Title :</p>
-                <p><?php echo $a['title'] ?></p>
+                <p style="font-weight: bold;"><?php echo substr($a['title'], 0, 25)  ?></p>
                 <p>Author :</p>
-                <p><?php echo $a['author'] ?></p>
+                <p style="font-weight: bold;"><?php echo substr($a['author'], 0, 25) ?></p>
                 <p>Publisher :</p>
-                <p><?php echo $a['publisher'] ?></p>
+                <p style="font-weight: bold;"><?php echo substr($a['publisher'], 0, 25) ?></p>
                 <p>Publication year :</p>
-                <p><?php echo $a['pubyear'] ?></p>
+                <p style="font-weight: bold;"><?php echo $a['pubyear'] ?></p>
             </div>
         </div>
     </div>
-        
+
 <?php
             }
         } else {
-    ?>
-    <h1 class="nf">Not found</h1>
+?>
+<h1 class="nf">Not found</h1>
 <?php
         }
 

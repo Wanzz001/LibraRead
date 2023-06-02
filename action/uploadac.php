@@ -39,7 +39,7 @@
             mysqli_query($conn, "INSERT INTO upload VALUES ('".$_SESSION['user']['id']."', '$id_buku', '".date("Y-m-d H:i:s")."')");
 
             if ($run) {
-                echo "<script> alert ('Upload Successfull'); history.back();</script>";
+                echo "<script> alert ('Upload Successfull'); window.location.href='../upload.php';</script>";
                 exit();   
             } else {
                 echo "<script> alert ('Upload Failed'); history.back();</script>";
