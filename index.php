@@ -40,9 +40,9 @@ if (!isset($_SESSION['user'])) {
             <span></span>
         </div>
         <ul class="list-items">
-            <li <?php if ($page == '') { ?>style="background-color: #C47521;" <?php } ?>><img src="image/user.png" width="30px"><a href="#" style="color:white; font-size:30px; margin-left: 10px;"><?php echo $_SESSION['user']['username']; ?></a></li>
-            <li <?php if ($page == 'upload') { ?>style="background-color: #C47521;" <?php } ?>><img src="image/upload.png" width="30px"><a href="upload.php" style="color:white; font-size:30px; margin-left: 10px;">Upload</a></li>
-            <li <?php if ($page == 'logout') { ?>style="background-color: #C47521;" <?php } ?>><img src="image/logout.png" width="30px"><a href="logout.php" style="color:white; font-size:30px; margin-left: 10px;">Logout</a></li>
+            <li style="background-color: #C47521;"><img src="image/user.png" width="30px"><a href="#" style="color:white; font-size:30px; margin-left: 10px;"><?php echo $_SESSION['user']['username']; ?></a></li>
+            <li><img src="image/upload.png" width="30px"><a href="upload.php" style="color:white; font-size:30px; margin-left: 10px;">Upload</a></li>
+            <li><img src="image/logout.png" width="30px"><a href="logout.php" style="color:white; font-size:30px; margin-left: 10px;">Logout</a></li>
         </ul>
     </div>
     <script>
@@ -67,11 +67,11 @@ if (!isset($_SESSION['user'])) {
                         <a href="desc.php?id=<?php echo $a['id'] ?>" class="thumbnail"><img src="<?php echo $a['sampul'] ?>"></a>
                         <div class="container">
                             <p>Title :</p>
-                            <p><?php echo substr($a['title'], 0, 25)  ?></p>
+                            <p style="font-weight: bold;"><?php echo substr($a['title'], 0, 25)  ?></p>
                             <p>Author :</p>
-                            <p><?php echo substr($a['author'], 0, 25) ?></p>
+                            <p style="font-weight: bold;"><?php echo substr($a['author'], 0, 25) ?></p>
                             <p>Publisher :</p>
-                            <p><?php echo substr($a['publisher'], 0, 25) ?></p>
+                            <p style="font-weight: bold;"><?php echo substr($a['publisher'], 0, 25) ?></p>
                             <p>Publication year :</p>
                             <p style="font-weight: bold;"><?php echo $a['pubyear'] ?></p>
                         </div>
