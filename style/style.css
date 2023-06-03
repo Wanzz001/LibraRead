@@ -673,6 +673,13 @@ ul{
     .viewdesc{
         flex-direction: column;
     }
+
+    .containerdesc{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
 }
 
 @media only screen and (max-width: 1100px) {
@@ -689,5 +696,16 @@ ul{
 @media only screen and (max-width: 545px) {
     .upload,.cancel{
         background-image: none;
+    }
+}
+
+@media only screen and (max-width: 545px) {
+    .read,.download{
+        background-image: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: max-content;
+        padding: 0 20px;
     }
 }

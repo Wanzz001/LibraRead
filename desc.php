@@ -28,14 +28,14 @@ if ($row > 0) {
         <nav>
             <img src="image/LibraRead.png" class="logo"> <a href="index.php" class="home">Home</a> <a href="about.php" class="about">About</a>
             <form action="search.php" method="get" class="fs">
-            <input type="search" name="find" class="search" placeholder="Search" required>
-            <?php
-            if (isset($_GET['find'])) {
-                $find = $_GET['find'];
-                echo "<script> window.location.href='search.php?search=$find';</script>";
-            }
-            ?>
-        </form>
+                <input type="search" name="find" class="search" placeholder="Search" required>
+                <?php
+                if (isset($_GET['find'])) {
+                    $find = $_GET['find'];
+                    echo "<script> window.location.href='search.php?search=$find';</script>";
+                }
+                ?>
+            </form>
         </nav>
         <a onclick="history.back()"><img src="image/back.png" class="back"></a>
         <br><br><br>
