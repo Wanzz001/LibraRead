@@ -20,7 +20,7 @@ nav {
     margin: 10px 0 20px 30px;
 }
 
-.home, .about {
+.home, .about,.home-about,.about-about {
     text-decoration: none;
     color: black;
     margin: 0 0 0 50px;
@@ -606,6 +606,76 @@ ul{
     width: 100%;
 }
 
+.about-about{
+    background-color: gray;
+    border-radius: 50px;
+    padding: 10px 20px;
+}
+
+.about-con {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.photo {
+    height: 40vh;
+    margin-bottom: 20px;
+}
+
+.desc {
+    color: white;
+    font-size: 30px;
+    text-align: justify;
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    height: max-content;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    margin-top: 30px;
+}
+
+.fl {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    align-self: center;
+}
+
+.fl-con{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.fr {
+    width: max-content;
+    margin-right: 20px;
+    justify-self: end;
+    align-self: center;
+}
+
+.fr img {
+    width: 350px;
+    margin-right: 10px;
+}
+
+.icon {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.contact{
+    font-size: 40px;
+}
+
 
 @media only screen and (max-width: 990px) and (min-width: 828px) {
     .logo{
@@ -708,4 +778,50 @@ ul{
         width: max-content;
         padding: 0 20px;
     }
+}
+
+@media only screen and (max-width: 800px) {
+    .desc{
+        font-size: 20px;
+    }
+
+    .photo{
+        height: 300px;
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    footer{
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: auto;
+    }
+
+    .fr{
+        margin-top: 30px;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .fl{
+        align-self: center;
+        justify-self: center;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .desc{
+        font-size: 18px;
+    }
+    .contact{
+        font-size: 20px;
+    }
+    .icon{
+        width: 30px;
+    }
+    .fr img{
+        width: 200px;
+    }
+    
 }
